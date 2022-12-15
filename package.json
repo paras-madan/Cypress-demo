@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "@cypress/grep": "^3.1.0",
+    "@cypress/xpath": "^2.0.3",
+    "cypress": "12.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^3.2.3"
+  },
+  "name": "cypressautomationdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "specific:test": "npx cypress run --spec 'cypress\\e2e\\Test.cy.js,cypress\\e2e\\Iframe.cy.js'",
+    "test:chrome": "npm run specific:test -- --browser chrome --headed",
+    "Crowsbroswer:test": "npm run specific:test -- --browser chrome --headed & npm run specific:test -- --browser Edge --headed",
+    "test:smoke": "cypress run --env grep=\"Smoke\"",
+    "test:smoke:regression": "cypress run --env grep=\"Smoke; Regression\"",
+    "test:tag:Smoke": "npx cypress run --env grepTags =\"Smoke\"",
+    "test:tag:smokeOrRegresssion": "cypress run --env grepTags =\"Smoke Regression\"",
+    "test:tag:SmokeAndRegresssion": "cypress run --env grepTags =\"Smoke+Regression\""
+  },
+  "author": "paras",
+  "license": "ISC",
+  "description": ""
+}
